@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<robot name="FusionComponent" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find FusionComponent_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find FusionComponent_description)/urdf/FusionComponent.trans" />
+<xacro:include filename="$(find FusionComponent_description)/urdf/FusionComponent.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.016557523766961034 -2.45872618857107e-05 -0.0058840040455593245" rpy="0 0 0"/>
+    <mass value="2.063351837070663"/>
+    <inertia ixx="0.002087" iyy="0.007887" izz="0.009536" ixy="-0.000205" iyz="-5.2e-05" ixz="-0.000348"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://FusionComponent_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://FusionComponent_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_2_1">
+  <inertial>
+    <origin xyz="-4.5469538814679744e-07 -0.0034997972344619904 6.905225762715572e-09" rpy="0 0 0"/>
+    <mass value="0.10789407269672445"/>
+    <inertia ixx="1.7e-05" iyy="3.4e-05" izz="1.7e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.084737 0.053392 0.027999" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://FusionComponent_description/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.084737 0.053392 0.027999" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://FusionComponent_description/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_1_1">
+  <inertial>
+    <origin xyz="-4.5469538656472963e-07 0.003500202765535372 6.9052261859881e-09" rpy="0 0 0"/>
+    <mass value="0.10789407269672448"/>
+    <inertia ixx="1.7e-05" iyy="3.4e-05" izz="1.7e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.089737 -0.056608 0.028249" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://FusionComponent_description/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.089737 -0.056608 0.028249" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://FusionComponent_description/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin xyz="-0.084737 -0.053392 -0.027999" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_2_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Rev2" type="continuous">
+  <origin xyz="-0.089737 0.056608 -0.028249" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_1_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+</robot>
