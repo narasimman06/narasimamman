@@ -71,7 +71,7 @@
   <origin xyz="-0.084737 -0.053392 -0.027999" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="wheel_2_1"/>
-  <axis xyz="-0.0 -1.0 -0.0"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
 </joint>
 
 <joint name="Rev2" type="continuous">
